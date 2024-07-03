@@ -1,9 +1,1 @@
-Cliente: Luis, Cedula: 123456788, Pelicula: MegamenteII, Hora: 2:50, Genero: Animado, TipoEntrada: 0, Cantidad: 2, Precio: 14.00
-Cliente: Luis, Cedula: 123456788, Pelicula: MegamenteII, Hora: 2:50, Genero: Animado, TipoEntrada: 1, Cantidad: 1, Precio: 3.50
-Cliente: Lupe, Cedula: 1234, Pelicula: MegamenteII, Hora: 2:50, Genero: Animado, TipoEntrada: 0, Cantidad: 2, Precio: 14.00
-Cliente: Lupe, Cedula: 1234, Pelicula: MegamenteII, Hora: 2:50, Genero: Animado, TipoEntrada: 1, Cantidad: 3, Precio: 10.50
-Cliente: Lupe, Cedula: 1234, Pelicula: MegamenteII, Hora: 2:50, Genero: Animado, TipoEntrada: 2, Cantidad: 2, Precio: 6.00
-Cliente: Lolito, Cedula: 123, Pelicula: Jurassic-Park, Hora: 12;30, Genero: Ciencia-Ficcion, TipoEntrada: 0, Cantidad: 1, Precio: 7.00
-Cliente: Lolito, Cedula: 123, Pelicula: Jurassic-Park, Hora: 12;30, Genero: Ciencia-Ficcion, TipoEntrada: 1, Cantidad: 1, Precio: 3.50
-Cliente: Lolito, Cedula: 123, Pelicula: Jurassic-Park, Hora: 12;30, Genero: Ciencia-Ficcion, TipoEntrada: 2, Cantidad: 1, Precio: 3.00
-Cliente: Lol, Cedula: 12, Pelicula: AvatarII, Hora: 10:20, Genero: Fantasia, TipoEntrada: 0, Cantidad: 1, Precio: 7.00
+
