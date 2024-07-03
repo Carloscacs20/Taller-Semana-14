@@ -34,7 +34,7 @@ void ingresarCliente(char clientes[][2][40]) {
     }
 
     fprintf(file, "Nombre: %s, Cedula: %s\n", nombre, cedula);
-
+    printf( "Nombre: %s, Cedula: %s\n", nombre, cedula);
     fclose(file);
 
     printf("Cliente ingresado correctamente.\n");
@@ -52,9 +52,11 @@ void listarPeliculas(char peliculas[][4][40]) {
     if (fp != NULL) {
         printf("Se abrio correctamente el archivo ListarP.txt\n");
 
+        printf("Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
         fprintf(fp, "Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
         for (int i = 0; i < 10; i++) {
             fprintf(fp, "%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
+            printf( "%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
         }
 
         fclose(fp);
@@ -74,10 +76,11 @@ void buscarporNombre(char peliculas[][4][40]) {
         printf("Se abrió correctamente BuscarPNombre.txt\n");
         
         fprintf(file, "Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
-
+        printf("Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
         for (int i = 0; i < 10; i++) {
             if (strcmp(peliculas[i][1], nombre) == 0) {
                 fprintf(file, "%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
+                printf( "%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
             }
         }
 
@@ -100,12 +103,13 @@ void buscarporGenero(char peliculas[][4][40]) {
         printf("Se abrio correctamente BuscarPGenero.txt\n");
         
         fprintf(file,"Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
-
+        printf("Numero\t\tPelicula\t\t\tHora\t\tGenero\n");
         for (int i = 0; i < 10; i++)
         {
             if (strcmp(peliculas[i][3],genero)==0)
             {
                 fprintf(file, "%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
+                printf("%s\t\t%s\t\t%s\t\t%s\n", peliculas[i][0], peliculas[i][1], peliculas[i][2], peliculas[i][3]);
             }
             
         }
@@ -175,7 +179,6 @@ void comprarTicket(char peliculas[][4][40], double precio[], char clientes[][2][
                             clientes[clienteIndex][0], clientes[clienteIndex][1],
                             peliculas[NumPelicula - 1][1], peliculas[NumPelicula - 1][2], peliculas[NumPelicula - 1][3],
                             i, cantidad, cantidad * precio[i]);
-                    
                     break;
                 }
             }
@@ -217,6 +220,7 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
     
     
     fprintf(file,"Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
+    printf("Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
     double totalPrecio = 0;
 
     for (int i = 0; i < 10; i++) {
@@ -230,6 +234,9 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
             fprintf(file,"  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
                    peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
                    cantidad, precioEntrada, precioTotal);
+            printf("  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
+                   peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
+                   cantidad, precioEntrada, precioTotal);
 
             totalPrecio += precioTotal;
         }
@@ -239,6 +246,7 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
         printf("No tiene reservas.\n");
     } else {
         fprintf(file,"Total a pagar: $%.2f\n", totalPrecio);
+        printf("Total a pagar: $%.2f\n", totalPrecio);
     }
     fclose(file);
   }else{
