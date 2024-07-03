@@ -198,7 +198,20 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
     char cedula[40];
     int clienteIndex = -1;
 
-    printf("Ingrese su cedula: ");
+    // Mostrar contenido previo del archivo
+    FILE *file = fopen("Ver compras.txt", "r");
+    if (file != NULL) {
+        char line[256];
+        printf("Contenido de Ver_compras.txt:\n");
+        while (fgets(line, sizeof(line), file)) {
+            printf("%s", line);
+        }
+        fclose(file);
+    } else {
+        printf("No se pudo abrir 'Ver_compras.txt' para lectura.\n");
+    }
+
+    printf("\nIngrese su cedula: ");
     scanf("%s", cedula);
 
     for (int i = 0; i < 5; i++) {
@@ -213,43 +226,41 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
         return;
     }
 
-    FILE *file=fopen("Ver compras.txt","a");
-    if (file != NULL)
-    {
-        printf("Se abrio correctamente Ver compras.txt\n");
+    file = fopen("Ver compras.txt", "a");
+    if (file != NULL) {
+        printf("Se abrio correctamente 'Ver_compras.txt'\n");
     
-    
-    fprintf(file,"Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
-    printf("Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
-    double totalPrecio = 0;
+        fprintf(file, "Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
+        printf("Compras realizadas por %s (Cedula: %s):\n", clientes[clienteIndex][0], clientes[clienteIndex][1]);
+        double totalPrecio = 0;
 
-    for (int i = 0; i < 10; i++) {
-        if (reserva[i][1] == clienteIndex) {
-            int peliculaIndex = reserva[i][0];
-            int cantidad = reserva[i][2];
-            int tipoEntrada = reserva[i][3];
-            double precioEntrada = precio[tipoEntrada];
-            double precioTotal = cantidad * precioEntrada;
+        for (int i = 0; i < 10; i++) {
+            if (reserva[i][1] == clienteIndex) {
+                int peliculaIndex = reserva[i][0];
+                int cantidad = reserva[i][2];
+                int tipoEntrada = reserva[i][3];
+                double precioEntrada = precio[tipoEntrada];
+                double precioTotal = cantidad * precioEntrada;
 
-            fprintf(file,"  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
-                   peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
-                   cantidad, precioEntrada, precioTotal);
-            printf("  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
-                   peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
-                   cantidad, precioEntrada, precioTotal);
+                fprintf(file, "  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
+                       peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
+                       cantidad, precioEntrada, precioTotal);
+                printf("  Pelicula: %s, Hora: %s, Genero: %s, Cantidad: %d, Precio de entrada: $%.2f, Precio Total: $%.2f\n",
+                       peliculas[peliculaIndex][1], peliculas[peliculaIndex][2], peliculas[peliculaIndex][3],
+                       cantidad, precioEntrada, precioTotal);
 
-            totalPrecio += precioTotal;
+                totalPrecio += precioTotal;
+            }
         }
-    }
 
-    if (totalPrecio == 0) {
-        printf("No tiene reservas.\n");
+        if (totalPrecio == 0) {
+            printf("No tiene reservas.\n");
+        } else {
+            fprintf(file, "Total a pagar: $%.2f\n", totalPrecio);
+            printf("Total a pagar: $%.2f\n", totalPrecio);
+        }
+        fclose(file);
     } else {
-        fprintf(file,"Total a pagar: $%.2f\n", totalPrecio);
-        printf("Total a pagar: $%.2f\n", totalPrecio);
+        printf("No se pudo abrir 'Ver_compras.txt' para escritura.\n");
     }
-    fclose(file);
-  }else{
-    printf("No se pudo abrir Ver compras.txt\n");
-  }
 }
