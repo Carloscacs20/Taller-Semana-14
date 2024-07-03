@@ -1,0 +1,9 @@
+Nombre: Carlos, Cedula: 123456789
+Nombre: Miguel, Cedula: 1235698
+Nombre: Pepe, Cedula: 145632
+Nombre: Luis, Cedula: 123456788
+Nombre: Pedro, Cedula: 
+Nombre: Carlos, Cedula: 
+Nombre: Lupe, Cedula: 1234
+Nombre: Lolito, Cedula: 123
+Nombre: Lol, Cedula: 12

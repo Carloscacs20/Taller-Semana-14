@@ -1,0 +1,3 @@
+Compras realizadas por Lol (Cedula: 12):
+  Pelicula: AvatarII, Hora: 10:20, Genero: Fantasia, Cantidad: 1, Precio de entrada: $7.00, Precio Total: $7.00
+Total a pagar: $7.00
