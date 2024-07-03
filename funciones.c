@@ -213,7 +213,7 @@ void verCompras(char peliculas[][4][40], double precio[], char clientes[][2][40]
         return;
     }
 
-    FILE *file=fopen("Ver compras.txt","w");
+    FILE *file=fopen("Ver compras.txt","a");
     if (file != NULL)
     {
         printf("Se abrio correctamente Ver compras.txt\n");
